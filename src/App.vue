@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-content>
-      qwe
+      <router-view/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'App'
 }
 </script>

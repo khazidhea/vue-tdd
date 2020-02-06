@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import PeopleList from '@/components/PeopleList.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
-
+  {
+    path: '/',
+    name: 'home',
+    component: PeopleList
+  }
 ]
 
 const router = new VueRouter({
