@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import Vuetify from 'vuetify'
+import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import PeopleList from '@/components/PeopleList.vue'
 
@@ -13,21 +13,19 @@ describe('PeopleList', () => {
     Vue.use(Vuetify)
     const localVue = createLocalVue()
     localVue.use(Vuex)
-
-    wrapper = shallowMount(PeopleList, {
-      store,
-      localVue,
-    })
-
     actions = {
-      peopleGet: jest.fn()
+      getPeople: jest.fn()
     }
     store = new Vuex.Store({
       actions
-    })  
+    })
+    wrapper = shallowMount(PeopleList, {
+      store,
+      localVue
+    })
   })
 
   it('dispatches action on mount', () => {
-    expect(actions.peopleGet.mock.calls).toHaveLength(1)
+    expect(actions.getPeople.mock.calls).toHaveLength(1)
   })
 })
