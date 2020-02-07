@@ -7,16 +7,17 @@ jest.mock('axios', () => ({
   get: jest.fn().mockImplementation(async _url => { 
     return new Promise((resolve) => {
       url = _url
-      resolve(true)
+      resolve({data: ''})
     })
   })
 }))
 
 describe('actions', () => {
-  it('getPeople should visit correct url', async () => {
+  it('getPeople should visit correct url and commit', async () => {
     const commit = jest.fn()
   
     await actions.getPeople({ commit })
     expect(url).toBe('users')
+    expect(commit).toHaveBeenCalledWith('SET_PEOPLE', '')
   })
 })
