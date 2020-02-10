@@ -1,5 +1,5 @@
 export default {
-  SET_PEOPLE(state, { people }) {
+  SET_PEOPLE (state, people) {
     state.people = people
   }
 }

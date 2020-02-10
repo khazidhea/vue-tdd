@@ -7,7 +7,7 @@ describe('mutations', () => {
       people: []
     }
 
-    mutations.SET_PEOPLE(state, { people })
+    mutations.SET_PEOPLE(state, people)
 
     expect(state).toEqual({
       people
