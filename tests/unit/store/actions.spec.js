@@ -1,13 +1,15 @@
-import actions from '@/store/actions.js'
+import actions from '@/store/actions'
+import people from '../../fixtures/people'
 
 let url
+const mock_people = people
 
 jest.mock('axios', () => ({
   defaults: {},
   get: jest.fn().mockImplementation(async _url => { 
     return new Promise((resolve) => {
       url = _url
-      resolve({data: ''})
+      resolve({data: mock_people})
     })
   })
 }))
@@ -18,6 +20,6 @@ describe('actions', () => {
   
     await actions.getPeople({ commit })
     expect(url).toBe('users')
-    expect(commit).toHaveBeenCalledWith('SET_PEOPLE', '')
+    expect(commit).toHaveBeenCalledWith('SET_PEOPLE', mock_people)
   })
 })
