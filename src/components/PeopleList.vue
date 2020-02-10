@@ -11,12 +11,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
-      headers: [],
-      people: [],
+      headers: [
+        { text: 'id', value: 'id' },
+        { text: 'name', value: 'name' }
+      ]
     }
+  },
+  computed: {
+    ...mapState(['people'])
   },
   mounted () {
     this.$store.dispatch('getPeople')
