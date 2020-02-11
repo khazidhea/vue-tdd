@@ -25,6 +25,11 @@ npm run test:unit
 npm run test:e2e
 ```
 
+To mock requests for e2e tests use:
+```
+export CYPRESS_MOCK_REQUESTS=true
+```
+
 ### Lints and fixes files
 ```
 npm run lint
